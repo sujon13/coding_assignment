@@ -24,22 +24,21 @@ class Solution3(object):
             error_message = 'Types of parameters are incorrect. They should be of type Node'
             raise TypeError(error_message)
 
-        dist_of_node1_from_root = self.get_distance_from_root(node1)
-        dist_of_node2_from_root = self.get_distance_from_root(node2)
+        distance_of_node1_from_root = self.get_distance_from_root(node1)
+        distance_of_node2_from_root = self.get_distance_from_root(node2)
 
         # First we will make sure node1 is the distant node from root
-        if dist_of_node2_from_root > dist_of_node1_from_root:
+        if distance_of_node2_from_root > distance_of_node1_from_root:
             node1, node2 = node2, node1
-            dist_of_node1_from_root, dist_of_node2_from_root = dist_of_node2_from_root, dist_of_node1_from_root
+            distance_of_node1_from_root, distance_of_node2_from_root = distance_of_node2_from_root, distance_of_node1_from_root
 
         # Now need to ensure two nodes are in same level
-        while dist_of_node1_from_root > dist_of_node2_from_root:
-            dist_of_node1_from_root -= 1
+        while distance_of_node1_from_root > distance_of_node2_from_root:
+            distance_of_node1_from_root -= 1
             node1 = node1.parent
 
         # now both nodes have equal distance from root node
-        lca_node = self.get_lca_of_two_same_leveled_node(node1, node2)
-        return lca_node
+        return self.get_lca_of_two_same_leveled_node(node1, node2)
 
     def get_lca_of_two_same_leveled_node(self, node1, node2):
         # if they are from same tree then lca will be found

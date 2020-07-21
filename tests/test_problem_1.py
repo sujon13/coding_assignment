@@ -76,7 +76,6 @@ class TestProblem1(unittest.TestCase):
         }
 
         answer = self.solution.print_depth(input_dictionary)
-        print(answer)
 
         actual_answer = [
             ('person', 1),

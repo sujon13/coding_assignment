@@ -15,7 +15,6 @@ class Solution1(object):
             error_message = 'Data type of parameter is incorrect. It should be a dictionary'
             raise TypeError(error_message)
 
-        # For debugging purpose
         # print("Input dictionary: {}".format(dictionary))
 
         self.dfs(dictionary, 1)

@@ -1,4 +1,13 @@
-# coding_assignment
+# Coding Assignment #
+## How to run locally ##
+You need to follow below steps
+
+0. Assumed python is already installed. Otherwise please install it.
+1. Type ` git clone <copied url> `
+2. Then ` cd coding_assignment`
+3. For running all unit test together type`python -m unittest discover -s tests` 
+4. For running individual solution type `cd coding_assignment` and then `python <file_name>`
+
 ## Runtime and Memory  Requirement ##
 
 ## Problem 1 ##

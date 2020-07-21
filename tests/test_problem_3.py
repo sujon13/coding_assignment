@@ -1,10 +1,11 @@
-from coding_assignment.problem_3 import Node, lca
+from coding_assignment.problem_3 import Node, Solution3
 import unittest
 
 
 class TestProblem3(unittest.TestCase):
     @classmethod
-    def setUpClass(cls) -> None:
+    def setUpClass(cls):
+        cls.solution = Solution3()
         cls.root_node = Node(1)
         cls.node_2 = Node(2, cls.root_node)
         cls.node_3 = Node(3, cls.root_node)
@@ -20,7 +21,8 @@ class TestProblem3(unittest.TestCase):
         cls.node_100 = Node(100)
 
     @classmethod
-    def tearDownClass(cls) -> None:
+    def tearDownClass(cls):
+        cls.solution = None
         cls.root_node = None
         cls.node_2 = Node
         cls.node_3 = None
@@ -35,22 +37,22 @@ class TestProblem3(unittest.TestCase):
 
     def test_wrong_parameters(self):
         with self.assertRaises(TypeError):
-            lca(1, 2)
+            self.solution.lca(1, 2)
 
     def test_every_node_is_ancestor_of_itself(self):
-        answer = lca(self.node_2, self.node_2)
+        answer = self.solution.lca(self.node_2, self.node_2)
         self.assertEqual(answer, self.node_2, 'Answer should be node_2')
 
     def test_lca_of_node_8_and_9_should_be_4(self):
-        answer = lca(self.node_8, self.node_9)
+        answer = self.solution.lca(self.node_8, self.node_9)
         self.assertEqual(answer, self.node_4, 'Answer should be node_4')
 
     def test_lca_of_root_and_6_should_be_1(self):
-        answer = lca(self.root_node, self.node_6)
+        answer = self.solution.lca(self.root_node, self.node_6)
         self.assertEqual(answer, self.root_node, 'Answer should be root node')
 
     def test_nodes_of_two_tree_should_not_have_lca(self):
-        answer = lca(self.node_8, self.node_100)
+        answer = self.solution.lca(self.node_8, self.node_100)
         self.assertEqual(answer, None, 'Answer should be None')
 
 
